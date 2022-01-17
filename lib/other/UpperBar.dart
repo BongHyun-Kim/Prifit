@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-class UpperBar extends StatelessWidget {
+class UpperBar extends StatelessWidget implements PreferredSizeWidget{
+
+  @override
+  Size get preferredSize => Size.fromHeight(60);
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: true,
       backgroundColor: Colors.black,
       centerTitle: true,
       // leading: Switch(onChanged: (value) {

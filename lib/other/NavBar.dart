@@ -33,7 +33,7 @@ class NavBar extends StatelessWidget {
             onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.airplane_ticket_outlined),
+            leading: Icon(Icons.bookmark_border_rounded),
             title: Text('정기권구독', style: TextStyle(color: Colors.black),),
             onTap: () => null,
           ),
