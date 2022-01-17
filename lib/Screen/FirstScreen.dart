@@ -13,7 +13,7 @@ class FirstScreen extends StatelessWidget {
       home: Scaffold(
           body: Container(
             child:
-            Text('Prifit', style: TextStyle(fontSize: 100),),
+            Text('PRIFIT', style: TextStyle(fontSize: 100),),
             alignment: Alignment(0.0, -0.25),
           ),
           bottomNavigationBar: Container(
