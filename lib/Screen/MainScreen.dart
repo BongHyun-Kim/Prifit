@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../other/NavBar.dart';
 import '../other/UpperBar.dart';
+import '../other/BottomBar.dart';
 
 void main() {
   runApp(MainScreen());
@@ -346,29 +347,7 @@ class _MainScreenState extends State<MainScreen> {
           ]),
         ),
 
-        bottomNavigationBar: BottomAppBar(
-          child: Container(
-            height: 50,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Row(
-                  children: [
-                    IconButton(onPressed: (){}, icon: Icon(Icons.home)),
-                  ],
-                ),            Row(
-                  children: [
-                    IconButton(onPressed: (){}, icon: Icon(Icons.message_rounded)),
-                  ],
-                ),            Row(
-                  children: [
-                    IconButton(onPressed: (){}, icon: Icon(Icons.person)),
-                  ],
-                )
-              ],
-            ),
-          )
-        ),
+        bottomNavigationBar: BottomBar()
       ),
       theme: ThemeData(
           textTheme: TextTheme(

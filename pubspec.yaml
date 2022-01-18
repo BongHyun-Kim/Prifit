@@ -38,6 +38,9 @@ dependencies:
   wrapped_korean_text: ^0.0.2
   flutter_switch: ^0.3.2
   carousel_slider: ^4.0.0
+  flutter_bloc: ^6.0.1
+  equatable: ^1.2.3
+  flutter_login: ^1.0.15
 
 dev_dependencies:
   flutter_test:
