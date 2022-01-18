@@ -8,6 +8,54 @@ void main() {
   runApp(MainScreen());
 }
 
+class Gym {
+  String? imageUrl;
+  String? title;
+  String? description;
+  int? price;
+  double? rating;
+
+  Gym({this.imageUrl, this.title, this.description, this.price, this.rating});
+}
+
+final List<Gym> gyms = [
+  Gym(
+    imageUrl: 'assets/sample_image1.jpg',
+    title: '가 헬스장',
+    description: '설명1',
+    price: 150000,
+    rating: 4.5,
+  ),
+  Gym(
+    imageUrl: 'assets/sample_image2.jpg',
+    title: '나 헬스장',
+    description: '설명2',
+    price: 150000,
+    rating: 4.8,
+  ),
+  Gym(
+    imageUrl: 'assets/sample_image3.jpg',
+    title: '다 헬스장',
+    description: '설명3',
+    price: 150000,
+    rating: 3.7,
+  ),
+  Gym(
+    imageUrl: 'assets/sample_image4.jpg',
+    title: '라 헬스장',
+    description: '설명4',
+    price: 150000,
+    rating: 4.1,
+  ),
+  Gym(
+    imageUrl: 'assets/sample_image5.jpg',
+    title: '마 헬스장',
+    description: '설명5',
+    price: 150000,
+    rating: 2.5,
+  ),
+];
+
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -19,52 +67,253 @@ class _MainScreenState extends State<MainScreen> {
   int currentPos = 0;
   bool _value = false;
   List<String> imagelist = [
-    'sample_image1.jpg',
-    'sample_image2.jpg',
-    'sample_image3.jpg',
-    'sample_image4.jpg',
-    'sample_image5.jpg'
+    'assets/sample_image1.jpg',
+    'assets/sample_image2.jpg',
+    'assets/sample_image3.jpg',
+    'assets/sample_image4.jpg',
+    'assets/sample_image5.jpg'
   ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: UpperBar(),
         drawer: NavBar(),
-        body: Column(children: [
-          CarouselSlider.builder(
-              itemCount: imagelist.length,
-              itemBuilder: (context, index, int a) {
-                return ImageView(imagelist[index]);
-              },
-              options: CarouselOptions(
-                  height: 180.0,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  aspectRatio: 16 / 9,
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enableInfiniteScroll: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  viewportFraction: 0.8)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: imagelist.map((url) {
-              int index = imagelist.indexOf(url);
-              return Container(
-                width: 8.0,
-                height: 8.0,
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: currentPos == index
-                      ? Color.fromRGBO(0, 0, 0, 0.9)
-                      : Color.fromRGBO(0, 0, 0, 0.4),
-                ),
-              );
-            }).toList(),
-          )
-        ]),
+        body: SingleChildScrollView(
+          child: Column(children: [
+            CarouselSlider.builder(
+                itemCount: imagelist.length,
+                itemBuilder: (context, index, int a) {
+                  return ImageView(imagelist[index]);
+                },
+                options: CarouselOptions(
+                    height: 180.0,
+                    enlargeCenterPage: true,
+                    autoPlay: true,
+                    aspectRatio: 16 / 9,
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enableInfiniteScroll: true,
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    viewportFraction: 0.8)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: imagelist.map((url) {
+                int index = imagelist.indexOf(url);
+                return Container(
+                  width: 8.0,
+                  height: 8.0,
+                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: currentPos == index
+                        ? Color.fromRGBO(0, 0, 0, 0.9)
+                        : Color.fromRGBO(0, 0, 0, 0.4),
+                  ),
+                );
+              }).toList(),
+            ),
+
+            // 헬스장 목록 시작
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 20.0, 0, 0),
+              child: Text(
+                  '헬스장 목록',
+                  style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600, fontSize: 18.0),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 250,
+              width: double.infinity,
+              child: ListView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                scrollDirection: Axis.horizontal,
+                itemCount: gyms.length,
+                itemBuilder: (BuildContext context, index) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10.0),
+                    height: 200,
+                    width: 170,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          offset: Offset(0.0, 4.0),
+                          blurRadius: 10.0,
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget> [
+                        Container(
+                          height: 140.0,
+                          width: 170.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              topRight: Radius.circular(10.0),
+                            ),
+                            image: DecorationImage(
+                              image: AssetImage(gyms[index].imageUrl!),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, top: 10),
+                          child: Text(
+                            gyms[index].title!,
+                            style: TextStyle(fontSize: 14.0, color: Colors.black),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Text(
+                            gyms[index].description!,
+                            style: TextStyle(fontSize: 13.0, color: Colors.grey),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10.0, right: 10.0, top: 10
+                          ),
+                          child: Text(
+                                    '1개월 / ${gyms[index].price} 원',
+                                    style: TextStyle(color: Colors.blue),
+                                  ) ,
+
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget> [
+                              Icon(
+                                Icons.star,
+                                color:  Colors.blue,
+                                size: 16.0,
+                              ),
+                              Text(
+                                '${gyms[index].rating}',
+                                style: TextStyle(color: Colors.blue),
+                              ),
+                            ],
+                          ),
+                      ],
+                    )
+                  );
+                },
+
+              ),
+            ),
+            // 헬스장 목록 끝
+
+            // 트레이너 목록 시작
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 20.0, 0, 0),
+              child: Text(
+                '트레이너',
+                style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600, fontSize: 18.0),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 250,
+              width: double.infinity,
+              child: ListView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                scrollDirection: Axis.horizontal,
+                itemCount: gyms.length,
+                itemBuilder: (BuildContext context, index) {
+                  return Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10.0),
+                      height: 200,
+                      width: 170,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            offset: Offset(0.0, 4.0),
+                            blurRadius: 10.0,
+                          )
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget> [
+                          Container(
+                            height: 140.0,
+                            width: 170.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10.0),
+                                topRight: Radius.circular(10.0),
+                              ),
+                              image: DecorationImage(
+                                image: AssetImage(gyms[index].imageUrl!),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, top: 10),
+                            child: Text(
+                              gyms[index].title!,
+                              style: TextStyle(fontSize: 14.0, color: Colors.black),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              gyms[index].description!,
+                              style: TextStyle(fontSize: 13.0, color: Colors.grey),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 10.0, right: 10.0, top: 10
+                            ),
+                            child: Text(
+                              '1개월 / ${gyms[index].price} 원',
+                              style: TextStyle(color: Colors.blue),
+                            ) ,
+
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+
+                            children: <Widget> [
+                              Icon(
+                                Icons.star,
+                                color:  Colors.blue,
+                                size: 16.0,
+                              ),
+                              Text(
+                                '${gyms[index].rating}',
+                                style: TextStyle(color: Colors.blue),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                  );
+                },
+
+              ),
+            ),
+            // 트레이너 목록 끝
+          ]),
+        ),
+
         bottomNavigationBar: BottomAppBar(
           child: Container(
             height: 50,
