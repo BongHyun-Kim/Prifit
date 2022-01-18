@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import './PasswordScreen.dart';
+import './SignUpScreen.dart';
+import './MainScreen.dart';
+
 void main() {
   runApp(LoginScreen());
 }
@@ -80,7 +84,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 40,
                       child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/second');
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MainScreen()
+                                )
+                            );
                           },
                           child: Text('로그인'),
                           style: ButtonStyle(
@@ -93,14 +102,28 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PasswordScreen()
+                                  )
+                              );
+                            },
                             child: Text('비밀번호찾기'),
                             style: TextButton.styleFrom(primary: Colors.black),
                           ),
                           Row(
                             children: [
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => SignUpScreen()
+                                        )
+                                    );
+                                  },
                                   child: Text('회원가입'),
                                   style: TextButton.styleFrom(primary: Colors.black))
                             ],
