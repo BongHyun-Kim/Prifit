@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -85,7 +87,7 @@ class _MainScreenState extends State<MainScreen> {
           child: Column(children: [
             CarouselSlider.builder(
                 itemCount: imagelist.length,
-                itemBuilder: (context, index, int a) {
+                itemBuilder: (context, int index, currentPos) {
                   return ImageView(imagelist[index]);
                 },
                 options: CarouselOptions(
@@ -96,7 +98,13 @@ class _MainScreenState extends State<MainScreen> {
                     autoPlayCurve: Curves.fastOutSlowIn,
                     enableInfiniteScroll: true,
                     autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    viewportFraction: 0.8)),
+                    viewportFraction: 0.8,
+                    onPageChanged: (index, reason) {
+                      currentPos = index;
+                    }
+                )
+            ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: imagelist.map((url) {
@@ -117,10 +125,19 @@ class _MainScreenState extends State<MainScreen> {
 
             // 헬스장 목록 시작
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20.0, 0, 0),
-              child: Text(
-                  '헬스장 목록',
-                  style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600, fontSize: 18.0),
+              padding: const EdgeInsets.fromLTRB(30, 20.0, 30, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                      '헬스장',
+                      style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600, fontSize: 18.0),
+                  ),
+                  Icon(
+                    Icons.search,
+                    size: 25,
+                  ),
+                ],
               ),
             ),
             SizedBox(
@@ -195,12 +212,15 @@ class _MainScreenState extends State<MainScreen> {
                             children: <Widget> [
                               Icon(
                                 Icons.star,
-                                color:  Colors.blue,
+                                color:  Colors.yellow,
                                 size: 16.0,
                               ),
-                              Text(
-                                '${gyms[index].rating}',
-                                style: TextStyle(color: Colors.blue),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                child: Text(
+                                  '${gyms[index].rating}',
+                                  style: TextStyle(color: Colors.yellow),
+                                ),
                               ),
                             ],
                           ),
@@ -215,10 +235,19 @@ class _MainScreenState extends State<MainScreen> {
 
             // 트레이너 목록 시작
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20.0, 0, 0),
-              child: Text(
-                '트레이너',
-                style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600, fontSize: 18.0),
+              padding: const EdgeInsets.fromLTRB(30, 20.0, 30, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '트레이너',
+                    style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600, fontSize: 18.0),
+                  ),
+                  Icon(
+                    Icons.search,
+                    size: 25,
+                  ),
+                ],
               ),
             ),
             SizedBox(
@@ -294,12 +323,15 @@ class _MainScreenState extends State<MainScreen> {
                             children: <Widget> [
                               Icon(
                                 Icons.star,
-                                color:  Colors.blue,
+                                color:  Colors.yellow,
                                 size: 16.0,
                               ),
-                              Text(
-                                '${gyms[index].rating}',
-                                style: TextStyle(color: Colors.blue),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                child: Text(
+                                  '${gyms[index].rating}',
+                                  style: TextStyle(color: Colors.yellow),
+                                ),
                               ),
                             ],
                           ),
