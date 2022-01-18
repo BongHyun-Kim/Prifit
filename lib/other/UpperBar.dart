@@ -1,3 +1,4 @@
+import 'package:example/Screen/QrScreen.dart';
 import 'package:flutter/material.dart';
 
 class UpperBar extends StatelessWidget implements PreferredSizeWidget{
@@ -9,7 +10,7 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: true,
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
       centerTitle: true,
       // leading: Switch(onChanged: (value) {
       //   setState(() {
@@ -33,7 +34,9 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget{
           iconSize: 30,
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => QrScreen()));
+          },
           icon: Icon(
             Icons.qr_code_rounded,
           ),
