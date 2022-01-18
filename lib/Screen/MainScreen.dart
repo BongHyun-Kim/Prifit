@@ -67,7 +67,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentPos = 0;
+  int _current = 0;
   bool _value = false;
   List<String> imagelist = [
     'assets/sample_image1.jpg',
@@ -92,7 +92,7 @@ class _MainScreenState extends State<MainScreen> {
                   return ImageView(imagelist[index]);
                 },
                 options: CarouselOptions(
-                    height: 180.0,
+                    height: 200,
                     enlargeCenterPage: true,
                     autoPlay: true,
                     aspectRatio: 16 / 9,
@@ -101,7 +101,9 @@ class _MainScreenState extends State<MainScreen> {
                     autoPlayAnimationDuration: Duration(milliseconds: 800),
                     viewportFraction: 0.8,
                     onPageChanged: (index, reason) {
-                      currentPos = index;
+                      setState(() {
+                        _current = index;
+                      });
                     }
                 )
             ),
@@ -116,7 +118,7 @@ class _MainScreenState extends State<MainScreen> {
                   margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: currentPos == index
+                    color: _current == index
                         ? Color.fromRGBO(0, 0, 0, 0.9)
                         : Color.fromRGBO(0, 0, 0, 0.4),
                   ),
