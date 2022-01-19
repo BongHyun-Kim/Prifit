@@ -16,29 +16,36 @@ class _QrScreenState extends State<QrScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0.0,
-            actions: [
-              IconButton(onPressed: (){}, icon: Icon(Icons.close, color: Colors.black, size: 30,))
-            ],
-          ),
-      body: Column(
-        children: [
-          Text('QR Check-In', style: TextStyle(fontSize: 30),),
-          Container(
-            alignment: Alignment.center,
-              margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-              child:
-              QrImage(
-                  data: "http://www.naver.com",
-                  backgroundColor: Colors.white,
-                  size: 250)
-          ),
-          Text('When you in to the Facility, you have to Validate the QrCode')
-        ],
+        home: Builder(
+          builder: (context) {
+            return Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0.0,
+                actions: [
+                  IconButton(onPressed: (){}, icon: Icon(Icons.close, color: Colors.black, size: 30,))
+                ],
+              ),
+      body: Center(
+        child: Column(
+              children: [
+                Text('QR Check-In', style: TextStyle(fontSize: 30),),
+                Container(
+                    margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                    child:
+                    QrImage(
+                        data: '가나다라마바사아자차카타파하123456789abcdefghijklmnopqrstuvwxyz',
+                        backgroundColor: Colors.white,
+                        size: 250)
+                ),
+                Container(
+                    width: (MediaQuery.of(context).size.width)*0.85, // 2022.01.19 김봉현(컨테이너 생성 및 크기 화면의 85%로 조정)
+                    child: Text('When you in to the Facility, you have to Validate the QrCode'))
+              ],
+        ),
       )
-    ));
+    );
+          }
+        ));
   }
 }

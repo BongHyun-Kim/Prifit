@@ -70,11 +70,11 @@ class _MainScreenState extends State<MainScreen> {
   int _current = 0;
   bool _value = false;
   List<String> imagelist = [
-    'assets/sample_image1.jpg',
-    'assets/sample_image2.jpg',
-    'assets/sample_image3.jpg',
-    'assets/sample_image4.jpg',
-    'assets/sample_image5.jpg'
+    'assets/banner1.jpg',
+    'assets/banner2.jpg',
+    'assets/banner3.jpg',
+    'assets/banner4.jpg',
+    'assets/event1.jpg'
   ];
 
   @override
