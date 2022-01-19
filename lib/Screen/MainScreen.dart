@@ -346,6 +346,120 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             // 트레이너 목록 끝
+
+            // 최근 본 목록 시작
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 20.0, 30, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '최근 본 목록',
+                    style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600, fontSize: 18.0),
+                  ),
+                  Text(
+                    "더보기>",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 250,
+              width: double.infinity,
+              child: ListView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                scrollDirection: Axis.horizontal,
+                itemCount: gyms.length,
+                itemBuilder: (BuildContext context, index) {
+                  return Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10.0),
+                      height: 200,
+                      width: 170,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            offset: Offset(0.0, 4.0),
+                            blurRadius: 10.0,
+                          )
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget> [
+                          Container(
+                            height: 140.0,
+                            width: 170.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10.0),
+                                topRight: Radius.circular(10.0),
+                              ),
+                              image: DecorationImage(
+                                image: AssetImage(gyms[index].imageUrl!),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, top: 10),
+                            child: Text(
+                              gyms[index].title!,
+                              style: TextStyle(fontSize: 14.0, color: Colors.black),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              gyms[index].description!,
+                              style: TextStyle(fontSize: 13.0, color: Colors.grey),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 10.0, right: 10.0, top: 10
+                            ),
+                            child: Text(
+                              '1개월 / ${gyms[index].price} 원',
+                              style: TextStyle(color: Colors.blue),
+                            ) ,
+
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+
+                            children: <Widget> [
+                              Icon(
+                                Icons.star,
+                                color:  Colors.yellow,
+                                size: 16.0,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                child: Text(
+                                  '${gyms[index].rating}',
+                                  style: TextStyle(color: Colors.yellow),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                  );
+                },
+
+              ),
+            ),
+            // 최근 본 목록 끝
           ]),
         ),
 
