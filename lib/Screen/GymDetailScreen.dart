@@ -423,76 +423,56 @@ class GymDetail extends StatelessWidget {
                         _buildReviewRow("★★★", 0.7),
                         _buildReviewRow("★★", 0.1),
                         _buildReviewRow("★", 0.3),
-                        SizedBox(height: 20),
 
                         //각 리뷰 구성
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                    width: 50,
-                                    height: 50,
-                                    child: CircleAvatar(
-                                      radius: 40,
-                                      backgroundColor: Colors.grey,
-                                      child: CircleAvatar(
-                                        radius: 35,
-                                        backgroundColor: Colors.transparent,
-                                        child: Image.asset('assets/profile.png'),
-                                      )
-                                    )
-                                  ),
-                                ),
-                                SizedBox(width: 10),
-                                Expanded(
-                                  flex: 6,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                          '작성자 이름',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold
-                                          ),
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text(
-                                              '★★★★☆',
-                                              style: TextStyle(
-                                                color: Colors.amber
-                                              )
-                                          ),
-                                          SizedBox(
-                                            width: 20,
-                                          ),
-                                          Text(
-                                            '2022.01.19',
-                                            style: TextStyle(
-                                              color: Colors.black26
-                                            )
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              'Over 8+ years of experience and web development and 5+ years of experience in mobile applications development'
-                            )
-                          ],
-                        ),
+                        reviewColumn(),
+                        reviewColumn(),
+                        reviewColumn(),
                       ],
                     ),
                   ),
                   // 후기 끝
+
+                  Divider(
+                    height: 10,
+                    color: Colors.black54,
+                  ),
+                  
+                  // 지도 시작
+                  Container(
+                    padding: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
+                    child: Column(
+                      children: [
+                        Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '지도',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          child: Image.asset('assets/sample_image1.jpg')
+                        ),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.black54,
+                            ),
+                            onPressed: () {},
+                            child: Text('길찾기')
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // 지도 끝
                 ],
               ),
             ],
@@ -728,6 +708,75 @@ Row _buildReviewRow(String star, double level) {
       SizedBox(
         width: 16,
       )
+    ],
+  );
+}
+
+// 후기 각 컬럼 구성
+Column reviewColumn() {
+  return Column(
+    children: [
+      SizedBox(height: 10),
+      Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Container(
+                width: 50,
+                height: 50,
+                child: CircleAvatar(
+                    radius: 40,
+                    backgroundColor: Colors.grey,
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundColor: Colors.transparent,
+                      child: Image.asset('assets/profile.png'),
+                    )
+                )
+            ),
+          ),
+          SizedBox(width: 10),
+          Expanded(
+            flex: 6,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '작성자 이름',
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                        '★★★★☆',
+                        style: TextStyle(
+                            color: Colors.amber
+                        )
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                        '2022.01.19',
+                        style: TextStyle(
+                            color: Colors.black26
+                        )
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      SizedBox(height: 10),
+      Text(
+          'Over 8+ years of experience and web development and 5+ years of experience in mobile applications development'
+      ),
+      SizedBox(height: 10)
     ],
   );
 }
