@@ -23,7 +23,9 @@ class _QrScreenState extends State<QrScreen> {
                 backgroundColor: Colors.transparent,
                 elevation: 0.0,
                 actions: [
-                  IconButton(onPressed: (){}, icon: Icon(Icons.close, color: Colors.black, size: 30,))
+                  IconButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, icon: Icon(Icons.close, color: Colors.black, size: 30,))
                 ],
               ),
       body: Center(

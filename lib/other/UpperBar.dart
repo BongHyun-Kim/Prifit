@@ -36,6 +36,8 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget{
         IconButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => QrScreen()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => QrScreen()));
+
           },
           icon: Icon(
             Icons.qr_code_rounded,

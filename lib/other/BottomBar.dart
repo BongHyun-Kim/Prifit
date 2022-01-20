@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Screen/MainScreen.dart';
 
 
 class BottomBar extends StatelessWidget {
@@ -16,7 +17,9 @@ class BottomBar extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+                      IconButton(onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen()));
+                      }, icon: Icon(Icons.home)),
                       Text('Home', style: TextStyle(fontSize: 10, color: Colors.grey),)
                     ],
                   )

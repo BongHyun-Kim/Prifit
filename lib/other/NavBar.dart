@@ -1,3 +1,4 @@
+import 'package:example/Screen/NoticeScreen.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
@@ -30,7 +31,7 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.notifications),
             title: Text('공지사항 & 이벤트', style: TextStyle(color: Colors.black),),
-            onTap: () => null,
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => NoticeScreen())),
           ),
           ListTile(
             leading: Icon(Icons.bookmark_border_rounded),

@@ -43,7 +43,6 @@ dependencies:
   flutter_login: ^1.0.15
   qr_flutter: ^4.0.0
   flutter_kakao_map: ^0.0.4
-  location: ^3.2.4
 
 dev_dependencies:
   flutter_test:

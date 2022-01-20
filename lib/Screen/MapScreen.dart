@@ -1,11 +1,11 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_kakao_map/flutter_kakao_map.dart';
-import 'package:flutter_kakao_map/kakao_maps_flutter_platform_interface.dart';
 import '../other/NavBar.dart';
 import '../other/UpperBar.dart';
 import '../other/BottomBar.dart';
+import 'package:flutter_kakao_map/flutter_kakao_map.dart';
+import 'package:flutter_kakao_map/kakao_maps_flutter_platform_interface.dart';
 
 
 void main(){
@@ -43,8 +43,8 @@ class _MyAppState extends State<MyApp> {
             drawer: NavBar(),
             body: Center(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.95,
-                height: MediaQuery.of(context).size.height * 0.8,
+                width: MediaQuery.of(context).size.width * 0.5,
+                height: MediaQuery.of(context).size.height * 0.5,
                 child:
                 KakaoMap(
                   onMapCreated: onMapCreated,
