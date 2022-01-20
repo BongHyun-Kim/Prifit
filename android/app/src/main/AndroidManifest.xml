@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prifit">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+    </uses-permission>
 
     <application
         android:label="prifit"
@@ -36,7 +38,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="a658d6d7d03dd2614db3cacee0b00787"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="a067a11d08c5905869efe70f7dfe49b3"/>
 
     </application>
 

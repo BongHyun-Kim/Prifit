@@ -1,11 +1,9 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:flutter_kakao_map/flutter_kakao_map.dart';
+import 'package:flutter_kakao_map/kakao_maps_flutter_platform_interface.dart';
 import '../other/NavBar.dart';
 import '../other/UpperBar.dart';
 import '../other/BottomBar.dart';
-import 'package:flutter_kakao_map/flutter_kakao_map.dart';
-import 'package:flutter_kakao_map/kakao_maps_flutter_platform_interface.dart';
 
 
 void main(){
@@ -18,7 +16,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   late KakaoMapController mapController;
   MapPoint _visibleRegion = MapPoint(37.5087553, 127.0632877);
   CameraPosition _kInitialPosition =
@@ -32,7 +29,6 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,19 +39,17 @@ class _MyAppState extends State<MyApp> {
             drawer: NavBar(),
             body: Center(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: MediaQuery.of(context).size.height * 0.5,
-                child:
-                KakaoMap(
-                  onMapCreated: onMapCreated,
-                  initialCameraPosition: _kInitialPosition,
-                ),
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.82,
+                child: KakaoMap(
+                    onMapCreated: onMapCreated,
+                    initialCameraPosition: _kInitialPosition),
               ),
             ),
             bottomNavigationBar: BottomBar(),
           );
         }
-      )
+      ),
     );
   }
 }
