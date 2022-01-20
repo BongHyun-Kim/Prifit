@@ -6,6 +6,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../other/NavBar.dart';
 import '../other/UpperBar.dart';
 import '../other/BottomBar.dart';
+import './GymDetailScreen.dart';
 
 void main() {
   runApp(MainScreen());
@@ -154,81 +155,91 @@ class _MainScreenState extends State<MainScreen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: gyms.length,
                 itemBuilder: (BuildContext context, index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
-                    height: 200,
-                    width: 170,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          offset: Offset(0.0, 4.0),
-                          blurRadius: 10.0,
-                        )
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget> [
-                        Container(
-                          height: 140.0,
-                          width: 170.0,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10.0),
-                              topRight: Radius.circular(10.0),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => GymDetail()
+                          )
+                      );
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10.0),
+                      height: 200,
+                      width: 170,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            offset: Offset(0.0, 4.0),
+                            blurRadius: 10.0,
+                          )
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget> [
+                          Container(
+                            height: 140.0,
+                            width: 170.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10.0),
+                                topRight: Radius.circular(10.0),
+                              ),
+                              image: DecorationImage(
+                                image: AssetImage(gyms[index].imageUrl!),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            image: DecorationImage(
-                              image: AssetImage(gyms[index].imageUrl!),
-                              fit: BoxFit.cover,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, top: 10),
+                            child: Text(
+                              gyms[index].title!,
+                              style: TextStyle(fontSize: 14.0, color: Colors.black),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, top: 10),
-                          child: Text(
-                            gyms[index].title!,
-                            style: TextStyle(fontSize: 14.0, color: Colors.black),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              gyms[index].description!,
+                              style: TextStyle(fontSize: 13.0, color: Colors.grey),
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            gyms[index].description!,
-                            style: TextStyle(fontSize: 13.0, color: Colors.grey),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 10.0, right: 10.0, top: 10
-                          ),
-                          child: Text(
-                                    '1개월 / ${gyms[index].price} 원',
-                                    style: TextStyle(color: Colors.blue),
-                                  ) ,
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 10.0, right: 10.0, top: 10
+                            ),
+                            child: Text(
+                                      '1개월 / ${gyms[index].price} 원',
+                                      style: TextStyle(color: Colors.blue),
+                                    ) ,
 
-                        ),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget> [
-                              Icon(
-                                Icons.star,
-                                color:  Colors.yellow,
-                                size: 16.0,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-                                child: Text(
-                                  '${gyms[index].rating}',
-                                  style: TextStyle(color: Colors.yellow),
-                                ),
-                              ),
-                            ],
                           ),
-                      ],
-                    )
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget> [
+                                Icon(
+                                  Icons.star,
+                                  color:  Colors.yellow,
+                                  size: 16.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                  child: Text(
+                                    '${gyms[index].rating}',
+                                    style: TextStyle(color: Colors.yellow),
+                                  ),
+                                ),
+                              ],
+                            ),
+                        ],
+                      )
+                    ),
                   );
                 },
 

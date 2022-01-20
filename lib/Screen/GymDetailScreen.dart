@@ -209,12 +209,12 @@ class GymDetail extends StatelessWidget {
                                     'assets/pic_wear.png',
                                     width: 60,
                                     height: 60,
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                 ),
                                 Text(
                                   '운동복',
                                   style: TextStyle(
-                                    color: Colors.black38,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ],
@@ -225,12 +225,12 @@ class GymDetail extends StatelessWidget {
                                     'assets/pic_towel.png',
                                     width: 60,
                                     height: 60,
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                 ),
                                 Text(
                                   '수건',
                                   style: TextStyle(
-                                    color: Colors.black38,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ],
@@ -257,12 +257,12 @@ class GymDetail extends StatelessWidget {
                                     'assets/pic_shower.png',
                                     width: 60,
                                     height: 60,
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                 ),
                                 Text(
                                   '샤워실',
                                   style: TextStyle(
-                                    color: Colors.black38,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ],
@@ -313,12 +313,12 @@ class GymDetail extends StatelessWidget {
                                   'assets/pic_inbody.png',
                                   width: 60,
                                   height: 60,
-                                  color: Colors.grey,
+                                  color: Colors.black,
                                 ),
                                 Text(
                                   '체성분 검사',
                                   style: TextStyle(
-                                    color: Colors.black38,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ],

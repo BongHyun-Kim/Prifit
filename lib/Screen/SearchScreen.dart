@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../other/UpperBar.dart';
 import '../other/NavBar.dart';
 import '../other/BottomBar.dart';
+import './GymDetailScreen.dart';
 
 void main() {
   runApp(SearchScreen());
@@ -22,8 +23,11 @@ class SearchScreen extends StatelessWidget {
             ListView(
               children: [
                 _buildSearchBar(), // 검색창
-                Flexible(child: GymItem()),
-                Flexible(child: GymItem()),
+                GymItem(),
+                GymItem(),
+                GymItem(),
+                GymItem(),
+                GymItem(),
               ],
             )
           ],
@@ -80,101 +84,93 @@ class GymItem extends StatelessWidget {
 
     return Stack(
       children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30.0),
-          ),
-          height: 120.0,
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-          child: Center(
-            child: Material(
-              elevation: 10.0,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => GymDetail()
+                )
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30.0),
-              child: Container(
-                width: deviceSize.width * 0.9,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                padding: EdgeInsets.symmetric(
-                  vertical: 10.0
-                ),
-                child: Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Container(
-                      height: 110.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
+            ),
+            height: 130.0,
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+            child: Center(
+              child: Material(
+                elevation: 10.0,
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  width: deviceSize.width * 0.9,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10.0
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 10.0,
                       ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20.0),
-                        child: Image.asset(
-                          'assets/sample_image1.jpg',
-                          fit: BoxFit.cover
+                      Container(
+                        height: 110.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Image.asset(
+                            'assets/sample_image1.jpg',
+                            fit: BoxFit.cover
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      width: deviceSize.width * 0.4,
-                      padding: EdgeInsets.only(left: 10.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            'Aerial Pendant',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8.0,
-                          ),
-                          Container(
-                            width: 200.0,
-                            child: Text(
-                              'Our Lighting colletion ',
+                      Container(
+                        width: deviceSize.width * 0.4,
+                        padding: EdgeInsets.only(left: 10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              '헬스장 이름',
                               style: TextStyle(
-                                color: Colors.amber,
-                                fontSize: 13.0,
+                                color: Colors.black,
+                                fontSize: 18.0,
                                 fontWeight: FontWeight.bold
                               ),
                             ),
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                '196',
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            Container(
+                              width: 200.0,
+                              child: Text(
+                                '서울특별시 서대문구 경기대로 68 동신빌딩 3층',
                                 style: TextStyle(
-                                  color: Colors.blue[700],
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold
+                                  color: Colors.black45,
+                                  fontSize: 10.0,
                                 ),
                               ),
-                              SizedBox(
-                                width: 5.0,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 5.0),
-                                child: Text(
-                                  'USD',
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.bold
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ],
-                      )
-                    ),
-                  ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Icon(Icons.star, color: Colors.amber),
+                                Icon(Icons.star, color: Colors.amber),
+                                Icon(Icons.star, color: Colors.amber),
+                                Icon(Icons.star_border, color: Colors.amber),
+                                Icon(Icons.star_border, color: Colors.amber),
+                              ],
+                            ),
+                          ],
+                        )
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
