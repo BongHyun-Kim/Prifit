@@ -1,9 +1,12 @@
+import 'package:example/Screen/MapScreen.dart';
 import 'package:flutter/material.dart';
 import '../other/NavBar.dart';
 import '../other/UpperBar.dart';
 
 void main() {
-  runApp(GymDetail());
+  runApp(MaterialApp(
+    home: GymDetail()
+  ));
 }
 
 class GymDetail extends StatelessWidget {
@@ -465,7 +468,9 @@ class GymDetail extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               primary: Colors.black54,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => MapScreen()));
+                            },
                             child: Text('길찾기')
                           ),
                         ),

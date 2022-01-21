@@ -1,4 +1,5 @@
 import 'package:example/Screen/QrScreen.dart';
+import 'package:example/Screen/SearchScreen.dart';
 import 'package:flutter/material.dart';
 
 class UpperBar extends StatelessWidget implements PreferredSizeWidget{
@@ -26,7 +27,9 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget{
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen()));
+          },
           icon: Icon(
             Icons.search_outlined,
           ),
@@ -36,8 +39,6 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget{
         IconButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => QrScreen()));
-            Navigator.push(context, MaterialPageRoute(builder: (context) => QrScreen()));
-
           },
           icon: Icon(
             Icons.qr_code_rounded,

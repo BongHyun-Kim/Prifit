@@ -5,12 +5,15 @@
     </uses-permission>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
     </uses-permission>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE">
+    </uses-permission>>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION">
+    </uses-permission>
 
     <application
         android:label="prifit"
         android:name="${applicationName}"
         android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -38,7 +41,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="a067a11d08c5905869efe70f7dfe49b3"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="a658d6d7d03dd2614db3cacee0b00787"/>
 
     </application>
 
