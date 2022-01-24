@@ -5,9 +5,8 @@ class NoticeModel{
   String headerItem;
   String discription;
   Color colorsItem;
-  String img;
 
-  NoticeModel({this.expanded: false,  required this.headerItem,  required this.discription,  required this.colorsItem,  required this.img});
+  NoticeModel({this.expanded: false,  required this.headerItem,  required this.discription,  required this.colorsItem});
 }
 
 class NoticeContent extends StatelessWidget {

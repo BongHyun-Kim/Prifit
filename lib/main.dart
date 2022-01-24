@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import './Screen/SplashScreen.dart';
 import './Screen/MainScreen.dart';
-import './Screen/NoticeScreen.dart';
+import './Screen/NoticeEventScreen.dart';
 import './Screen/GymDetailScreen.dart';
 
 void main() {

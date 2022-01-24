@@ -1,10 +1,13 @@
+import 'package:example/Screen/OTPSetupScreen.dart';
 import 'package:flutter/material.dart';
 import '../other/UpperBar.dart';
 import '../other/NavBar.dart';
 import '../other/BottomBar.dart';
 
 void main(){
-  runApp(SetupScreen());
+  runApp(MaterialApp(
+    home: SetupScreen()
+  ));
 }
 
 class SetupScreen extends StatefulWidget {
@@ -15,7 +18,10 @@ class SetupScreen extends StatefulWidget {
 }
 
 class _SetupScreenState extends State<SetupScreen> {
-  bool _value = false;
+  bool _notice = false;
+  bool _message = false;
+  bool _event = false;
+  bool _autologin = false;
   bool _isExpanded = false;
   @override
   Widget build(BuildContext context) {
@@ -48,11 +54,11 @@ class _SetupScreenState extends State<SetupScreen> {
                         Container(
                           child:
                           Transform.scale( scale: 0.8,
-                            child: Switch(onChanged: (value) {
+                            child: Switch(onChanged: (notice) {
                               setState(() {
-                                _value = value;
+                                _notice = notice;
                               });
-                            }, value: _value,
+                            }, value: _notice,
                               activeColor: Colors.black,
                               inactiveTrackColor: Colors.grey,
                               inactiveThumbColor: Colors.black26,),
@@ -72,11 +78,11 @@ class _SetupScreenState extends State<SetupScreen> {
                         Container(
                           child:
                           Transform.scale( scale: 0.8,
-                            child: Switch(onChanged: (value) {
+                            child: Switch(onChanged: (message) {
                               setState(() {
-                                _value = value;
+                                _message = message;
                               });
-                            }, value: _value,
+                            }, value: _message,
                               activeColor: Colors.black,
                               inactiveTrackColor: Colors.grey,
                               inactiveThumbColor: Colors.black26,),
@@ -96,11 +102,11 @@ class _SetupScreenState extends State<SetupScreen> {
                         Container(
                           child:
                           Transform.scale( scale: 0.8,
-                            child: Switch(onChanged: (value) {
+                            child: Switch(onChanged: (event) {
                               setState(() {
-                                _value = value;
+                                _event = event;
                               });
-                            }, value: _value,
+                            }, value: _event,
                               activeColor: Colors.black,
                               inactiveTrackColor: Colors.grey,
                               inactiveThumbColor: Colors.black26,),
@@ -142,11 +148,11 @@ class _SetupScreenState extends State<SetupScreen> {
                     ),
                     Container(
                       child:
-                      Switch(onChanged: (value) {
+                      Switch(onChanged: (autologin) {
                         setState(() {
-                          _value = value;
+                          _autologin = autologin;
                         });
-                      }, value: _value,
+                      }, value: _autologin,
                       activeColor: Colors.black,
                       inactiveTrackColor: Colors.grey,
                       inactiveThumbColor: Colors.black26,),
@@ -157,7 +163,7 @@ class _SetupScreenState extends State<SetupScreen> {
               ),
               GestureDetector(
                 onTap: (){
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => OTPSetupScreen()));
                 },
                 child: Container(
                     height:70,

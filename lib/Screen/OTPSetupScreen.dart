@@ -1,10 +1,13 @@
+import 'package:example/Screen/OTPSetScreen.dart';
 import 'package:flutter/material.dart';
 import '../other/UpperBar.dart';
 import '../other/NavBar.dart';
 import '../other/BottomBar.dart';
 
 void main(){
-  runApp(OTPSetupScreen());
+  runApp(MaterialApp(
+    home: OTPSetupScreen()
+  ));
 }
 
 class OTPSetupScreen extends StatefulWidget {
@@ -56,7 +59,7 @@ class _OTPSetupScreenState extends State<OTPSetupScreen> {
               ),
               GestureDetector(
                 onTap: (){
-                  
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => OTPSetScreen()));
                 },
                 child: Container(
                     height: 70,

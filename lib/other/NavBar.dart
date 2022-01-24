@@ -1,4 +1,4 @@
-import 'package:example/Screen/NoticeScreen.dart';
+import 'package:example/Screen/NoticeEventScreen.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
