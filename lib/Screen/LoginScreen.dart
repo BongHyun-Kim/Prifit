@@ -15,7 +15,6 @@ class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
-
 class _LoginScreenState extends State<LoginScreen> {
   bool _isChecked = false;
 
@@ -130,8 +129,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           )
                         ],
                       ),
-                    )
-                  ]))
+                    ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                    child: Row(
+                      children: [
+                        GestureDetector(child: Image(image: AssetImage('assets/kakaotalk.png'),width: 70,),
+                        onTap: (){
+
+                        })
+                      ],
+                    ),
+                  )]))
             )),
     theme: ThemeData(
       primaryColor: Colors.black,
