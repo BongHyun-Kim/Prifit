@@ -37,7 +37,7 @@ class _NoticeListState extends State<NoticeList> {
                         )
                       ],
                     )),
-                headerBuilder: (BuildContext contextf, bool isExpanded) {
+                headerBuilder: (BuildContext context, bool isExpanded) {
                   return Container(
                       padding: EdgeInsets.all(10),
                       child: Text(noticeData[index].headerItem,

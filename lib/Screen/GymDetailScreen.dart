@@ -1,4 +1,7 @@
-import 'package:example/Screen/MapScreen.dart';
+import 'package:example/Screen/MainScreen.dart';
+
+import './MapScreen_ver2.dart';
+import 'package:example/other/ShowMap.dart';
 import 'package:flutter/material.dart';
 import '../other/NavBar.dart';
 import '../other/UpperBar.dart';
@@ -459,8 +462,10 @@ class GymDetail extends StatelessWidget {
                         ],
                         ),
                         Container(
+                          width: MediaQuery.of(context).size.width * 0.85,
+                          height: MediaQuery.of(context).size.height * 0.3,
                           padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                          child: Image.asset('assets/sample_image1.jpg')
+                          child: ShowMap(),
                         ),
                         SizedBox(
                           width: double.infinity,
@@ -497,7 +502,9 @@ class GymDetail extends StatelessWidget {
                           children: [
                             Column(
                               children: [
-                                IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+                                IconButton(onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> MainScreen()));
+                                }, icon: Icon(Icons.home)),
                                 Text('Home', style: TextStyle(fontSize: 10, color: Colors.grey),)
                               ],
                             )
